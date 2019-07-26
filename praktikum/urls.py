@@ -24,5 +24,6 @@ from django.conf.urls.static import static
 urlpatterns = [
     re_path(r'^admin/', admin.site.urls),
     re_path(r'^lab-1/', include('lab_1.urls')),
+    re_path(r'^my_exp/', include('my_exp.urls')),
     re_path(r'^$', index_lab1, name='index')
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
