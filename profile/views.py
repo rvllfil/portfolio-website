@@ -28,7 +28,7 @@ def index(request):
         'linkedin': linkedin,
         'twitter': twitter
     }
-    return render(request, 'index_lab1.html', response)
+    return render(request, 'index_profile.html', response)
 
 
 def calculate_age(birth_year):

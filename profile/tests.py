@@ -12,9 +12,9 @@ import unittest
 class Lab1UnitTest(TestCase):
 
     def test_hello_name_is_exist(self):
-        response = Client().get('/lab-1/')
+        response = Client().get('/profile/')
         self.assertEqual(response.status_code, 200)
 
     def test_using_index_func(self):
-        found = resolve('/lab-1/')
+        found = resolve('/profile/')
         self.assertEqual(found.func, index)

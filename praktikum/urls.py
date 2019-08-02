@@ -16,14 +16,15 @@ Including another URLconf
 from django.conf.urls import include
 from django.urls import re_path
 from django.contrib import admin
-from lab_1.views import index as index_lab1
+from profile.views import index as index_profile
 from django.conf import settings
 from django.conf.urls.static import static
 
 
 urlpatterns = [
     re_path(r'^admin/', admin.site.urls),
-    re_path(r'^lab-1/', include('lab_1.urls')),
-    re_path(r'^my_exp/', include('my_exp.urls')),
-    re_path(r'^$', index_lab1, name='index')
+    re_path(r'^profile/', include('profile.urls')),
+    re_path(r'^resume/', include('resume.urls')),
+    re_path(r'^portfolio/', include('portfolio.urls')),
+    re_path(r'^$', index_profile, name='index')
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
