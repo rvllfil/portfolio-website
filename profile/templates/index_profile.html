@@ -5,13 +5,76 @@
 <head>
 	<title>{{ name }}</title>
 	{% include "snippets/styles.html" %}
+	<style>
+	#bg-image {
+		background: url({% static 'profile/img/back.jpg' %})
+	}
+	</style>
 	<link rel="stylesheet" href="{% static 'profile/css/styles.css' %}">
 </head>
 
 <body>
-
+	
+	<!-- navbar -->
 	{% include "snippets/navbar.html" %}
-	{% include "snippets/jumbotron.html" %}
+	
+	<!-- Showcase -->
+	<div id="bg-image"></div>
+
+	<!-- About Me -->
+	<div id="About">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div id="AboutData">
+						<div class="card bg-white">
+							<div class="card-title my-5">
+								<div class="media">
+									<img src="{% static "profile/img/my_photo.png" %}" width="250" height="250" class="img-fluid rounded-top mx-5 d-none d-lg-block" alt="">
+									<div class="media-body">
+										<h3 class="display-4 ml-5"> I'm {{ name }}</h3>
+										<p class="text-muted ml-5" >{{ interest }}</p>
+										<div class="container">
+											<table class="table table-responsive ml-4">
+												<tr>
+													<td class="text-muted">Age</td>
+													<td>:</td>
+													<td>{{ age }} Years Old</td>
+												</tr>
+												<tr>
+													<td class="text-muted">Email</td>
+													<td>:</td>
+													<td>{{ email }}</td>
+												</tr>	
+												<tr>
+													<td class="text-muted">Phone</td>
+													<td>:</td>
+													<td>{{ phone }}</td>
+												</tr>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="card-footer bg-light d-none d-lg-block">
+								<a href=""><i class="fab fa-instagram fa-2x mx-3"></i></a>
+								<a href=""><i class="fab fa-twitter fa-2x mx-3"></i></a>
+								<a href=""><i class="fab fa-github fa-2x mx-3"></i></a>
+								<a href=""><i class="fab fa-gitlab fa-2x mx-3"></i></a>
+								<a href=""><i class="fab fa-linkedin fa-2x mx-3"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- footer -->
+	{% include "snippets/footer.html" %}
+	
+	
+	<!-- script js bootstrap -->
 	{% include "snippets/scripts.html" %}
 </body>
 
