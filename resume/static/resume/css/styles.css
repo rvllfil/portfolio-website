@@ -1,0 +1,12 @@
+section {
+	min-height: 350px;
+}
+
+
+#jumbotron {
+	background-attachment: fixed;
+	background-size: cover;
+	background-repeat: no-repeat;
+	min-height: 500px;
+}
+
