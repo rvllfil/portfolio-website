@@ -56,3 +56,11 @@ def message_post(request):
         return render(request, html, response)
     else:
         return HttpResponseRedirect('/')
+
+
+def message_table(request):
+    response = {}
+    message = Message.objects.all()
+    response['message'] = message
+    html = 'table.html'
+    return render(request, html , response)
