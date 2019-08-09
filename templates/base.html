@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>{% block title %}{% endblock title %}</title>
+	{% include "partials/styles.html" %}
+	{% block styles %}{% endblock styles %}
+</head>
+
+<body>
+
+	<!-- navbar -->
+	{% include "partials/navbar.html" %}
+
+	<!-- header -->
+	{% block header %}
+		
+	{% endblock header %}
+
+	<!-- content -->
+	{% block content %}
+		
+	{% endblock content %}
+
+	<!-- footer -->
+	{% include "partials/footer.html" %}
+
+	<!-- scripts js bootstrap -->
+	{% include "partials/scripts.html" %}
+
+
+</body>
+</html>
