@@ -1,5 +1,9 @@
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
+from .forms import Message_Form
+from .models import Message
 from datetime import datetime, date
+
 
 mhs_name = 'Rully Fildansyah'  
 curr_year = int(datetime.now().strftime("%Y"))
@@ -31,8 +35,24 @@ def index(request):
         'linkedin': linkedin,
         'twitter': twitter
     }
+    response['message_form'] = Message_Form
     return render(request, 'index_profile.html', response)
 
 
 def calculate_age(birth_year):
     return curr_year - birth_year if birth_year <= curr_year else 0
+
+
+def message_post(request):
+    response = {}
+    form = Message_Form(request.POST or None)
+    if(request.method == 'POST' and form.is_valid()):
+        response['name'] = request.POST['name'] if request.POST['name'] != "" else "Anonymous"
+        response['email'] = request.POST['email'] if request.POST['email'] != "" else "Anonymous"
+        response['message'] = request.POST['message']
+        message = Message(name=response['name'], email=response['email'], message=response['message'])
+        message.save()
+        html ='form_result.html'
+        return render(request, html, response)
+    else:
+        return HttpResponseRedirect('/')

@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "layout/base.html" %}
 {% load static %}
 
 {% block content %}	
@@ -50,4 +50,14 @@
 		</div>
 	</div>
 </div>
+
+<section name="form">
+	<h2>Send Message</h2>
+	<form id="form" method="POST" action="{% url 'profile:add_message' %}">
+		{% csrf_token %}
+		{{ message_form }}
+		<br>
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+</section>
 {% endblock content %}
