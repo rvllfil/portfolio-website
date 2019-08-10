@@ -30,7 +30,7 @@ body {
 			<!-- TODO, Kalau nama/email anon maka tr classnya jadi warning -->
 			{% for i in message %}
 			{% if i.name == 'Anonymous' or i.email == 'Anonymous' %}
-			<tr class="warning"> {% else %} <tr class="success">
+			<tr class="table-warning"> {% else %} <tr class="success">
 				{% endif %}
 				<td> {{i.name}} </td>
 				<td> {{i.email}} </td>
