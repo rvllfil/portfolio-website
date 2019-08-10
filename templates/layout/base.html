@@ -4,7 +4,7 @@
 <html>
 
 <head>
-	<title>{% block title %}{% endblock title %}</title>
+	<title>{% block title %}Rully Fildansyah{% endblock title %}</title>
 	{% include "partials/styles.html" %}
 	{% block styles %}{% endblock styles %}
 </head>
@@ -14,10 +14,14 @@
 	<!-- navbar -->
 	{% include "partials/navbar.html" %}
 
-	<!-- header -->
-	{% block header %}
-		
-	{% endblock header %}
+	<!-- header -->	
+	<div class="jumbotron jumbotron-fluid">
+  		<div class="container">
+  			{% block header %}
+    		<h1 class="display-4">Welcome to My Portfolio</h1>
+  			{% endblock header %}
+  		</div>
+	</div>	
 
 	<!-- content -->
 	{% block content %}
