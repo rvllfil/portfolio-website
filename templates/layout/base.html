@@ -10,11 +10,12 @@
 	<meta name="description" content="mysite">
 	<meta name="author" content="{{ name }}">
 
-	<title>{% block title %}Rully Fildansyah{% endblock title %}</title>
+	<title>{% block title %}{{ name }}{% endblock title %}</title>
 	<link href="https://fonts.googleapis.com/css?family=Luckiest+Guy|Nunito|Permanent+Marker&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="{% static 'vendor/bootstrap/bootstrap.css' %}">
 	<link rel="stylesheet" href="{% static 'vendor/font-awesome/css/all.css' %}">
 	<link rel="stylesheet" href="{% static "css/styles.css" %}">
+	<link rel="stylesheet" href="{% static "css/chatbox.css" %}">
 	{% block styles %}{% endblock styles %}
 </head>
 
@@ -36,6 +37,9 @@
 		
 	{% endblock content %}
 
+	<!-- chatbox -->
+	{% include "partials/chatbox.html" %}
+
 	<!-- footer -->
 	{% include "partials/footer.html" %}
 
@@ -43,6 +47,7 @@
 	<script src="{% static 'vendor/jquery/jquery-3.3.1.slim.min.js' %}" type="text/javascript" ></script>
 	<script src="{% static 'vendor/popper/popper.min.js' %}" type="text/javascript" ></script>
 	<script src="{% static 'vendor/bootstrap/bootstrap.js' %}" type="text/javascript" ></script>
+	<script src="{% static 'js/chatbox.js' %}" type="text/javascript" ></script>	
 	{% block script %}{% endblock script %}
 
 </body>
