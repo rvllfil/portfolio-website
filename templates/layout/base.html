@@ -21,7 +21,43 @@
 
 <body>
 	<!-- navbar -->
-	{% include "partials/navbar.html" %}
+	<nav class="navbar fixed-top navbar-expand-lg navbar-dark">
+	    <div class="container">    
+	        <a class="navbar-brand" href="/"><h3>UPIL</h3></a>
+	        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	          <span class="navbar-toggler-icon"></span>
+	        </button>
+
+	        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	            <ul class="navbar-nav ml-auto">
+	                <li class="nav-item">
+	                <a class="nav-link" href="/">Profile</a>
+	                </li>
+	                <li class="nav-item">
+	                <a class="nav-link" href="/resume">Resume</a>
+	                </li>
+	                </li>
+	                <li class="nav-item">
+	                <a class="nav-link" href="/portfolio">Portfolio</a>
+	                </li>
+	                {% if user.is_authenticated %}     
+	                    <li class="nav-item">
+	                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+	                    </li>
+	                    {% if user.is_superuser %}                   
+	                        <li class="nav-item">
+	                        <a class="nav-link" href="{% url 'profile:result_table' %} ">See Messages</a>
+	                        </li>
+	                    {% endif %}  
+	                {% else %}
+	                    <li class="nav-item">
+	                    <a class="nav-link" href="{% url 'login' %}">Login</a>
+	                    </li>
+	                {% endif %}
+	        </div>
+	    </div>
+	</nav>
+
 
 	<!-- header -->	
 	<div class="jumbotron jumbotron-fluid">
@@ -38,7 +74,15 @@
 	{% endblock content %}
 
 	<!-- chatbox -->
-	{% include "partials/chatbox.html" %}
+	{% block chatbox %}
+		{% if user.is_authenticated %}
+			{% include "partials/chatbox.html" %}
+		{% else %}
+
+		{% endif %}
+
+	{% endblock chatbox %}
+	
 
 	<!-- footer -->
 	{% include "partials/footer.html" %}

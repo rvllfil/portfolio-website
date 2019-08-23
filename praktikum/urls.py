@@ -19,6 +19,7 @@ from django.contrib import admin
 from profile.views import index as index_profile
 from django.conf import settings
 from django.conf.urls.static import static
+from .views import login_view, logout_view
 
 
 urlpatterns = [
@@ -26,5 +27,7 @@ urlpatterns = [
     re_path(r'^profile/', include('profile.urls')),
     re_path(r'^resume/', include('resume.urls')),
     re_path(r'^portfolio/', include('portfolio.urls')),
+    re_path(r'^login', login_view, name='login'),
+    re_path(r'^logout', logout_view, name='logout'), 
     re_path(r'^$', index_profile, name='index')
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

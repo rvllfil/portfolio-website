@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
+from django.contrib.auth import authenticate, login
 from .forms import Message_Form
 from .models import Message
 from datetime import datetime, date
@@ -64,3 +65,5 @@ def message_table(request):
     response['message'] = message
     html = 'table.html'
     return render(request, html , response)
+
+

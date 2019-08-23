@@ -5,6 +5,10 @@
 	<link rel="stylesheet" href="{% static "profile/css/styles.css" %}">
 {% endblock styles %}
 
+{% block header %}
+	<h1 class="display-4">Hallo {{ user }}</h1>
+{% endblock header %}
+
 {% block content %}	
 <!-- About Me -->
 <div id="About">
@@ -73,9 +77,6 @@
 					<button type="submit" class="btn btn-primary btn-block">Submit</button>
 				</form>
 			</div>
-		</div>
-		<div class="d-flex flex-column align-items-center py-3">
-			<a href="{% url 'profile:result_table' %}">See Message</a>
 		</div>
 	</div>
 </section>
